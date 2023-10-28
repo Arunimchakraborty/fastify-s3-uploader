@@ -13,6 +13,8 @@ const app: FastifyPluginAsync<AppOptions> = async (
 	opts
 ): Promise<void> => {
 	// Place here your custom code!
+	// await fastify.register(require('fastify-formbody'));
+
 	await fastify.register(AutoLoad, {
 		dir: join(__dirname, "configs"),
 		options: opts,

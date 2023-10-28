@@ -1,4 +1,4 @@
-const bucketName = process.env.S3_BucketName
+const bucketName = process.env.S3_BUCKET_NAME
 
 if (!bucketName) throw new Error("S3 Bucket Name not set")
 

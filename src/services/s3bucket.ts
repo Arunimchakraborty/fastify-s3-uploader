@@ -3,21 +3,26 @@ import aws from "../configs/AWS/aws";
 import s3bucket from "../configs/AWS/s3bucket";
 
 const { access_key, secret_key } = aws;
-const {bucketName} = s3bucket
+const { bucketName } = s3bucket;
 
-const s3Client = new S3Client([
-	{ credentials: { accessKeyId: access_key, secretAccessKey: secret_key } },
-]);
+const s3Client = new S3Client({
+	region: "ap-south-1",
+  credentials: {
+    accessKeyId: access_key,
+    secretAccessKey: secret_key
+  }
+});
 
-async function uploadToS3(key:string, body: any) {
-  await s3Client.send(
-    new PutObjectCommand({
-      Bucket: bucketName,
-      Key: key,
-      Body: body,
-    })
-  );
+// console.log(await s3Client.config.region)
+
+async function uploadToS3(key: string, body: any) {
+	await s3Client.send(
+		new PutObjectCommand({
+			Bucket: bucketName,
+			Key: key,
+			Body: body,
+		})
+	);
 }
 
-export default {uploadToS3};
-
+export default { uploadToS3 };
