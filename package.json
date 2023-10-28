@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.438.0",
     "@fastify/autoload": "^5.0.0",
     "@fastify/mongodb": "^7.0.0",
     "@fastify/sensible": "^5.0.0",
